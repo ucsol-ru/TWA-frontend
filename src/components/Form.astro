@@ -1,0 +1,33 @@
+---
+interface Props {
+	heading: string;
+}
+
+const { heading } = Astro.props;
+---
+
+<h1 class="text-xl text-center">{heading}</h1>
+<form>
+  <label class="form-control w-full">
+    <div class="label">
+      <span class="label-text">Контактное лицо</span>
+    </div>
+    <input type="text" class="input input-bordered w-full" placeholder="Имя Фамилия"/>
+  </label>
+  <label class="form-control w-full">
+    <div class="label">
+      <span class="label-text">Телефон</span>
+    </div>
+    <input type="tel" class="input input-bordered w-full" placeholder="+7 (999) 999-99-99"/>
+  </label>
+  <label class="form-control w-full">
+    <div class="label">
+      <span class="label-text">Email</span>
+    </div>
+    <input type="email" class="input input-bordered w-full" placeholder="mail@example.com"/>
+  </label>
+  
+  <slot />
+
+  <button type="submit" class="btn bg-gradient-to-r from-violet-600 to-indigo-600 text-white uppercase my-4 w-full">Отправить</button>
+</form>
