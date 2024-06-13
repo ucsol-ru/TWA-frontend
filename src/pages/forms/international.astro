@@ -26,6 +26,49 @@ import Collapse from '../../components/Collapse.astro';
             <input type="checkbox" class="checkbox checkbox-primary" />
           </label>
         </div>
+        <hr class="my-4">
+        <label class="form-control w-full">
+          <div class="label">
+            <span class="label-text">Наименование грузов, товаров</span>
+          </div>
+          <input type="text" class="input input-bordered w-full" placeholder="Например: Бумага"/>
+        </label>
+        <label class="form-control w-full">
+          <div class="label">
+            <span class="label-text">Пункт отправки (Страна)</span>
+          </div>
+          <input type="text" class="input input-bordered w-full" placeholder="Москва, Россия"/>
+        </label>
+        <label class="form-control w-full">
+          <div class="label">
+            <span class="label-text">Пункт доставки (Стрвана)</span>
+          </div>
+          <input type="text" class="input input-bordered w-full" placeholder="Рим, Италия"/>
+        </label>
+        <label class="form-control w-full">
+          <div class="label">
+            <span class="label-text">Общий вес брутто груза, кг</span>
+          </div>
+          <input type="text" class="input input-bordered w-full" placeholder="100 кг"/>
+        </label>
+        <label class="form-control w-full">
+          <div class="label">
+            <span class="label-text">Габариты груза, м. (ширина, длина, высота)</span>
+          </div>
+          <input type="text" class="input input-bordered w-full" placeholder="1.20, 0.80, 1.00"/>
+        </label>
+        <label class="form-control w-full">
+          <div class="label">
+            <span class="label-text">Приемлемый срок доставки, дней</span>
+          </div>
+          <input type="text" class="input input-bordered w-full" placeholder="10 дней"/>
+        </label>
+        <label class="form-control w-full">
+          <div class="label">
+            <span class="label-text">Необходим температурный режим, °C</span>
+          </div>
+          <input type="text" class="input input-bordered w-full" placeholder="Если требуется"/>
+        </label>
       </Collapse>
     </Form>
   </main>
