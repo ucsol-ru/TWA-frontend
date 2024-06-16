@@ -1,33 +1,47 @@
 ---
 interface Props {
 	heading: string;
+  formName: string;
+  formTitle: string;
 }
 
-const { heading } = Astro.props;
+const { heading, formName, formTitle } = Astro.props;
 ---
 
 <h1 class="text-xl text-center">{heading}</h1>
-<form>
-  <label class="form-control w-full">
+<form name={formName}>
+  <input type="hidden" name="form-name" value={formTitle}>
+  <label class="form-control w-full" for="name">
     <div class="label">
       <span class="label-text">Контактное лицо</span>
     </div>
-    <input type="text" class="input input-bordered w-full" placeholder="Имя Фамилия"/>
+    <input type="text" name="nameface" id="nameface" class="input input-bordered w-full" placeholder="Имя Фамилия"/>
   </label>
-  <label class="form-control w-full">
+  <label class="form-control w-full" for="tel">
     <div class="label">
       <span class="label-text">Телефон</span>
     </div>
-    <input type="tel" class="input input-bordered w-full" placeholder="+7 (999) 999-99-99"/>
+    <input type="tel" name="tel" id="tel" class="input input-bordered w-full" placeholder="+7 (999) 999-99-99"/>
   </label>
-  <label class="form-control w-full">
+  <label class="form-control w-full" for="email">
     <div class="label">
       <span class="label-text">Email</span>
     </div>
-    <input type="email" class="input input-bordered w-full" placeholder="mail@example.com"/>
+    <input type="email" name="email" id="email" class="input input-bordered w-full" placeholder="mail@example.com"/>
   </label>
   
   <slot />
 
   <button type="submit" class="btn bg-gradient-to-r from-violet-600 to-indigo-600 text-white uppercase my-4 w-full">Отправить</button>
+
+  { /* ВРЕМЕННОЕ РЕШЕНИЕ... попозже переделать под реакт компоненты */ }
+  <script>
+    function submitForm (event) {
+      event.preventDefault();
+      const data = new FormData(event.target);
+      console.log(Object.fromEntries(data.entries()));
+      console.log(event.target.name);
+    }
+    document.forms[0].addEventListener("submit", submitForm);
+  </script>
 </form>
