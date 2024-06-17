@@ -34,14 +34,54 @@ const { heading, formName, formTitle } = Astro.props;
 
   <button type="submit" class="btn bg-gradient-to-r from-violet-600 to-indigo-600 text-white uppercase my-4 w-full">Отправить</button>
 
+  <dialog id="success-dialog" class="modal">
+    <div class="modal-box">
+      <h3 class="font-bold text-lg">Заявка успешно отправлена</h3>
+      <p class="py-4">В ближайшее время с Вами свяжутся наши специалисты</p>
+    </div>
+  </dialog>
+
+  <dialog id="error-dialog" class="modal">
+    <div class="modal-box">
+      <h3 class="font-bold text-lg">Заявка не была отправлена</h3>
+      <p class="py-4">Что-то пошло не так, попробуйте позже</p>
+    </div>
+  </dialog>
+
   { /* ВРЕМЕННОЕ РЕШЕНИЕ... попозже переделать под реакт компоненты */ }
   <script>
+        const formSend = async (event, form, data) => {
+        let send = await fetch(`https://ucsol.ru/twa/forms/${form}.php`, {
+          method: "POST",
+          mode: "no-cors",
+          body: data   
+        })
+
+        if(send.ok) {
+          event.target.reset();
+          document.getElementById("success-dialog").showModal();
+          
+          setTimeout(() => {
+            document.getElementById("success-dialog").close();
+          }, 2000);
+        } else {
+          document.getElementById("error-dialog").showModal();
+
+          setTimeout(() => {
+            document.getElementById("error-dialog").close();
+          }, 2000);
+        }
+      }
+
     function submitForm (event) {
       event.preventDefault();
       const data = new FormData(event.target);
-      console.log(Object.fromEntries(data.entries()));
-      console.log(event.target.name);
+      const formName = event.target.name; 
+
+      formSend(event, formName, data);
+      console.log(data)
     }
+
     document.forms[0].addEventListener("submit", submitForm);
   </script>
 </form>

@@ -11,65 +11,65 @@ import Collapse from '../../components/Collapse.astro';
           formName="international">
       <Collapse>
         <div class="form-control">
-          <label class="label cursor-pointer">
+          <label class="label cursor-pointer" for="check1">
             <span class="label-text">Таможенное оформление</span> 
-            <input type="checkbox" class="checkbox checkbox-primary" />
+            <input type="checkbox" name="check1" id="check1" class="checkbox checkbox-primary" />
           </label>
         </div>
         <div class="form-control">
-          <label class="label cursor-pointer">
+          <label class="label cursor-pointer" for="check2">
             <span class="label-text">Сертификация</span> 
-            <input type="checkbox" class="checkbox checkbox-primary" />
+            <input type="checkbox" name="check2" id="check2" class="checkbox checkbox-primary" />
           </label>
         </div>
         <div class="form-control">
-          <label class="label cursor-pointer">
+          <label class="label cursor-pointer" for="check3">
             <span class="label-text">Страхование</span> 
-            <input type="checkbox" class="checkbox checkbox-primary" />
+            <input type="checkbox" name="check3" id="check3" class="checkbox checkbox-primary" />
           </label>
         </div>
         <hr class="my-4">
-        <label class="form-control w-full">
+        <label class="form-control w-full" for="gruz">
           <div class="label">
             <span class="label-text">Наименование грузов, товаров</span>
           </div>
-          <input type="text" class="input input-bordered w-full" placeholder="Например: Бумага"/>
+          <input type="text" name="gruz" id="gruz" class="input input-bordered w-full" placeholder="Например: Бумага"/>
         </label>
-        <label class="form-control w-full">
+        <label class="form-control w-full" for="city">
           <div class="label">
             <span class="label-text">Пункт отправки (Страна)</span>
           </div>
-          <input type="text" class="input input-bordered w-full" placeholder="Москва, Россия"/>
+          <input type="text" name="city" id="city" class="input input-bordered w-full" placeholder="Москва, Россия"/>
         </label>
-        <label class="form-control w-full">
+        <label class="form-control w-full" for="city2">
           <div class="label">
             <span class="label-text">Пункт доставки (Стрвана)</span>
           </div>
-          <input type="text" class="input input-bordered w-full" placeholder="Рим, Италия"/>
+          <input type="text" name="city2" id="city2" class="input input-bordered w-full" placeholder="Рим, Италия"/>
         </label>
-        <label class="form-control w-full">
+        <label class="form-control w-full" for="kg">
           <div class="label">
             <span class="label-text">Общий вес брутто груза, кг</span>
           </div>
-          <input type="text" class="input input-bordered w-full" placeholder="100 кг"/>
+          <input type="text" name="kg" id="kg" class="input input-bordered w-full" placeholder="100 кг"/>
         </label>
-        <label class="form-control w-full">
+        <label class="form-control w-full" for="metr">
           <div class="label">
             <span class="label-text">Габариты груза, м. (ширина, длина, высота)</span>
           </div>
-          <input type="text" class="input input-bordered w-full" placeholder="1.20, 0.80, 1.00"/>
+          <input type="text" name="metr" id="metr" class="input input-bordered w-full" placeholder="1.20, 0.80, 1.00"/>
         </label>
-        <label class="form-control w-full">
+        <label class="form-control w-full" for="srok">
           <div class="label">
             <span class="label-text">Приемлемый срок доставки, дней</span>
           </div>
-          <input type="text" class="input input-bordered w-full" placeholder="10 дней"/>
+          <input type="text" name="srok" id="srok" class="input input-bordered w-full" placeholder="10 дней"/>
         </label>
-        <label class="form-control w-full">
+        <label class="form-control w-full" for="temp_rezhim">
           <div class="label">
             <span class="label-text">Необходим температурный режим, °C</span>
           </div>
-          <input type="text" class="input input-bordered w-full" placeholder="Если требуется"/>
+          <input type="text" name="temp_rezhim" id="temp_rezhim" class="input input-bordered w-full" placeholder="Если требуется"/>
         </label>
       </Collapse>
     </Form>

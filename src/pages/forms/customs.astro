@@ -6,12 +6,14 @@ import Collapse from '../../components/Collapse.astro';
 
 <Layout title="Таможенное оформление грузов|Универсальные Грузовые Решения">
   <main class="container mx-auto p-4">
-    <Form heading="Таможенное оформление грузов">
+    <Form heading="Таможенное оформление грузов"
+          formTitle="Таможенное оформление грузов"
+          formName="customs">
       <div class="form-control">
         <div class="label">
           <span class="label-text">Вид услуги</span> 
         </div>
-        <select class="select select-bordered w-full">
+        <select name="usluga" id="usluga" class="select select-bordered w-full">
           <option disabled selected>Не выбрано</option>
           <option>Растоможка</option>
           <option>Затаможка</option>
@@ -21,7 +23,7 @@ import Collapse from '../../components/Collapse.astro';
         <div class="label">
           <span class="label-text">Участник ВЭД</span> 
         </div>
-        <select class="select select-bordered w-full">
+        <select name="ved" id="ved" class="select select-bordered w-full">
           <option disabled selected>Не выбрано</option>
           <option>Физическое лицо</option>
           <option>Индивидуальный предприниматель</option>
@@ -30,35 +32,35 @@ import Collapse from '../../components/Collapse.astro';
       </div>
       <Collapse>
         <div class="form-control">
-          <label class="label cursor-pointer">
+          <label class="label cursor-pointer" for="check1">
             <span class="label-text">Международная перевозка грузов</span> 
-            <input type="checkbox" class="checkbox checkbox-primary" />
+            <input type="checkbox" name="check1" id="check1" class="checkbox checkbox-primary" />
           </label>
         </div>
         <div class="form-control">
-          <label class="label cursor-pointer">
+          <label class="label cursor-pointer" for="check2">
             <span class="label-text">Сертификация</span> 
-            <input type="checkbox" class="checkbox checkbox-primary" />
+            <input type="checkbox" name="check2" id="check2" class="checkbox checkbox-primary" />
           </label>
         </div>
         <div class="form-control">
-          <label class="label cursor-pointer">
+          <label class="label cursor-pointer" for="check3">
             <span class="label-text">Страхование</span> 
-            <input type="checkbox" class="checkbox checkbox-primary" />
+            <input type="checkbox" name="check3" id="check3" class="checkbox checkbox-primary" />
           </label>
         </div>
         <hr class="my-4">
-        <label class="form-control w-full">
+        <label class="form-control w-full" for="gruz">
           <div class="label">
             <span class="label-text">Наименование грузов, товаров</span>
           </div>
-          <input type="text" class="input input-bordered w-full" placeholder="Например: Бумага"/>
+          <input type="text" name="gruz" id="gruz" class="input input-bordered w-full" placeholder="Например: Бумага"/>
         </label>
-        <label class="form-control w-full">
+        <label class="form-control w-full" for="mesto">
           <div class="label">
             <span class="label-text">Место таможенного оформления</span>
           </div>
-          <input type="text" class="input input-bordered w-full" placeholder="Если есть пожилания"/>
+          <input type="text" name="mesto" id="mesto" class="input input-bordered w-full" placeholder="Если есть пожилания"/>
         </label>
     </Form>
   </main>
