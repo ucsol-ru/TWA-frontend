@@ -50,40 +50,21 @@ const { heading, formName, formTitle } = Astro.props;
 
   { /* ВРЕМЕННОЕ РЕШЕНИЕ... попозже переделать под реакт компоненты */ }
   <script>
-    const formSend = async (event, form, data) => {
-      try {
-        let response = await fetch(`https://ucsol.ru/twa/forms/${form}.php`, {
+        const formSend = async (event, form, data) => {
+        let send = await fetch(`https://ucsol.ru/twa/forms/${form}.php`, {
           method: "POST",
-          mode: "cors", // Изменено с "no-cors" на "cors"
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          },
-          body: data
-        });
+          mode: "no-cors",
+          body: data   
+        })
 
-        if(response.ok) {
-          event.target.reset();
-          document.getElementById("success-dialog").showModal();
-          
-          setTimeout(() => {
-            document.getElementById("success-dialog").close();
-          }, 2000);
-        } else {
-          document.getElementById("error-dialog").showModal();
-
-          setTimeout(() => {
-            document.getElementById("error-dialog").close();
-          }, 2000);
-        }
-      } catch (error) {
-        console.error('Ошибка при отправке формы:', error);
-        document.getElementById("error-dialog").showModal();
-
+        event.target.reset();
+        document.getElementById("success-dialog").showModal();
+        
         setTimeout(() => {
-          document.getElementById("error-dialog").close();
+          document.getElementById("success-dialog").close();
         }, 2000);
+
       }
-    }
 
     function submitForm (event) {
       event.preventDefault();
